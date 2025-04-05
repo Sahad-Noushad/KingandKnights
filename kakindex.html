@@ -1,0 +1,50 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <title>King and Knights</title>
+        <script src="https://kit.fontawesome.com/3ff269eea1.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="kakindex.css">
+        <script>
+            function playername(n){
+                var namein=document.getElementById("nameinput");
+                namein.innerHTML="";
+                for (let i = 1; i <= n; i++){
+                    var input=document.createElement("input");
+                    input.name="player"+i;
+                    input.placeholder="Player "+i+" name";
+                    input.required=true;
+                    input.type="text";
+                    namein.appendChild(input);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="head">
+                <div class="back">  
+                    <a href="index.html"><i class="fas fa-arrow-circle-left"></i>Back</a>
+                </div>
+                <div class="name">
+                    <p>king and knights (രാജാവും കുതിരയും)</p>
+                </div>
+            </div>
+            <div class="body">
+                <form action="kak.php" method="post">
+                    <select name="player" onchange="playername(this.value)" required>
+                        <option value="" disabled hidden selected>Select number of players</option>
+                        <option value="2">Two players</option>
+                        <option value="3">Three players</option>
+                        <option value="4">Four players</option>
+                        <option value="5">Five players</option>
+                    </select>
+                    <span class="nameinput" id="nameinput">
+                    </span>
+                    <span class="button">
+                        <input type="submit" name="submit" value="Play">
+                    </span>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
